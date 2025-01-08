@@ -247,13 +247,33 @@ console.log(person1.greet());  // "Hi, I'm John"</code></pre>
         <section id="dom-manipulation"></section>
             <h2>DOM Manipulation</h2>
             <div class="content">
-                <h3>Editing Elements</h3>
-                <ul>
-                    <li><code>.remove()</code> - Removes the element from DOM</li>
-                    <li><code>.lastElementChild</code> - Selects the last child element</li>
-                    <li><code>.innerHTML</code> - Gets or sets HTML content</li>
-                    <li><code>.textContent</code> - Gets or sets text content</li>
-                </ul>
+            <h3>Editing Elements</h3>
+            <ul>
+            <li><code>.remove()</code> - Removes the element from DOM</li>
+            <li><code>.innerText</code> - Gets or sets the visible text content (without HTML tags)</li>
+            <li><code>.textContent</code> - Gets or sets text content</li>
+            <li><code>.style</code> - Changes CSS styles directly on element</li>
+            </ul>
+            <h3>Examples</h3>
+            <pre><code>// Remove example
+        const element = document.querySelector('.some-class');
+        element.remove();  // Removes element from the page
+
+        // textContent example
+        const heading = document.querySelector('h1');
+        heading.textContent = 'New Heading';  // Changes text content
+        console.log(heading.textContent);     // Gets text content
+
+        // innerText example
+        const div = document.querySelector('div');
+        div.innerText = 'Hello World';  // Changes visible text
+        console.log(div.innerText);     // Gets visible text only
+
+        // style example
+        const box = document.querySelector('.box');
+        box.style.backgroundColor = 'red';  // Changes background color
+        box.style.padding = '20px';        // Adds padding
+        box.style.border = '2px solid black';</code></pre>
             </div>
         </section>
 
@@ -268,7 +288,87 @@ console.log(person1.greet());  // "Hi, I'm John"</code></pre>
                 <h3>Multiple Elements</h3>
                 <ul>
                     <li><code>document.querySelectorAll('.class')</code></li>
+                    <li><code>.lastElementChild</code> - Selects the last child element</li>
+                    <li><code>.children[index]</code> - Selects child element at specific index</li>
                 </ul>
+                <h3>Element Selection Examples</h3>
+                <pre><code>// lastElementChild example
+const parent = document.querySelector('ul');
+const lastChild = parent.lastElementChild;  // Gets last <li>
+
+// children example
+const list = document.querySelector('ul');
+const secondItem = list.children[1];  // Gets second list item</code></pre>
+            </div>
+        </section>
+
+        <section id="event-listeners">
+            <h2>Event Listeners</h2>
+            <div class="content">
+                <h3>Basic Syntax</h3>
+                <pre><code>element.addEventListener(eventType, callback)</code></pre>
+                
+                <h3>Common Event Types</h3>
+                <ul>
+                    <li><code>'click'</code> - Mouse click</li>
+                    <li><code>'submit'</code> - Form submission</li>
+                    <li><code>'keydown'</code> - Key press</li>
+                    <li><code>'mouseover'</code> - Mouse hover</li>
+                    <li><code>'load'</code> - Page/element loaded</li>
+                </ul>
+
+                <h3>Complete Example</h3>
+                <pre><code>// Button click example
+const button = document.querySelector('#submitBtn');
+button.addEventListener('click', function(event) {
+    event.preventDefault();  // Prevents default behavior
+    console.log('Button clicked!');
+});
+
+// Form submission example
+const form = document.querySelector('#myForm');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();  // Stops form from submitting
+    
+    // Get input value
+    const input = document.querySelector('#username');
+    console.log('Form submitted with:', input.value);
+});
+
+// Keyboard event example
+document.addEventListener('keydown', function(event) {
+    console.log('Key pressed:', event.key);
+    
+    // Check for specific key
+    if (event.key === 'Escape') {
+        console.log('Escape key pressed!');
+    }
+});
+
+// Mouse hover example
+const box = document.querySelector('.box');
+box.addEventListener('mouseover', function() {
+    this.style.backgroundColor = 'red';
+});
+box.addEventListener('mouseout', function() {
+    this.style.backgroundColor = 'blue';
+});</code></pre>
+
+                <h3>Event Object Properties</h3>
+                <ul>
+                    <li><code>event.target</code> - Element that triggered the event</li>
+                    <li><code>event.preventDefault()</code> - Stops default behavior</li>
+                    <li><code>event.key</code> - Key pressed (for keyboard events)</li>
+                    <li><code>event.clientX/clientY</code> - Mouse coordinates</li>
+                </ul>
+
+                <h3>Using Arrow Functions</h3>
+                <pre><code>// Modern syntax with arrow function
+element.addEventListener('click', (e) => {
+    console.log('Clicked:', e.target);
+});</code></pre>
+
+                <p>Note: The <code>this</code> keyword behaves differently in arrow functions. Use <code>event.target</code> instead of <code>this</code> when using arrow functions.</p>
             </div>
         </section>
 

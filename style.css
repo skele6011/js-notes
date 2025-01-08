@@ -40,6 +40,15 @@ pre {
 
 code {
     font-family: 'Courier New', Courier, monospace;
+    background: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #333;
+}
+
+pre code {
+    background: none;
+    padding: 0;
 }
 
 ul {
@@ -49,4 +58,17 @@ ul {
 
 li {
     margin: 0.5rem 0;
+}
+
+.content {
+    padding: 1rem;
+}
+
+h3 {
+    color: #444;
+    margin: 1rem 0 0.5rem 0;
+}
+
+section + section {
+    margin-top: 2rem;
 }
