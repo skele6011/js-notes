@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <script src="sketch.js"></script>
+</head>
+<body>
+    <header>
+        <h1>JavaScript Notes</h1>
+    </header>
+
+    <main class="container">
+        <section id="variables">
+            <h2>Variables</h2>
+            <div class="content">
+                <h3>Basic Variables</h3>
+                <pre><code>let variableName = "hi";    // String
+let numberVar = 9;         // Number</code></pre>
+                <p>Variables declared with 'let' can be changed later, while 'const' can't. Using camelCase naming convention.</p>
+            </div>
+        </section>
+
+        <section id="data-types">
+            <h2>Data Types</h2>
+            <div class="content">
+                <h3>Primitive Types</h3>
+                <pre><code>// String
+let text = "Hello";
+// Number
+let num = 42;
+// Boolean
+let isTrue = true;
+// Undefined
+let notDefined;
+// Null
+let empty = null;
+// Symbol
+let sym = Symbol();</code></pre>
+                
+                <h3>Type Checking</h3>
+                <pre><code>typeof "Hello"     // "string"
+typeof 42         // "number"
+typeof true       // "boolean"
+typeof undefined  // "undefined"</code></pre>
+            </div>
+        </section>
+
+        <section id="arrays">
+            <h2>Arrays</h2>
+            <div class="content">
+            <pre><code>let rows = ["first", "second"];</code></pre>
+            <h3>Array Methods</h3>
+            <ul>
+                <li><code>.push()</code> - Adds element to end</li>
+                <li><code>.pop()</code> - Removes and returns last element</li>
+                <li><code>.unshift()</code> - Adds element to start</li>
+                <li><code>.length</code> - Returns array size</li>
+                <li><code>.forEach()</code> - Loops through an Array and gets each thing one by one</li>
+            </ul>
+            </div>
+        </section>
+
+        <section id="operators">
+            <h2>Operators</h2>
+            <div class="content">
+                <h3>Arithmetic Operators</h3>
+                <pre><code>// Basic Math
+let sum = 5 + 3;      // Addition
+let diff = 10 - 5;    // Subtraction
+let product = 4 * 2;  // Multiplication
+let quotient = 8 / 2; // Division
+let remainder = 5 % 2; // Modulus (remainder)
+
+// Increment/Decrement
+let count = 0;
+count++;  // count = count + 1
+count--;  // count = count - 1</code></pre>
+
+                <h3>Comparison Operators</h3>
+                <pre><code>// Equality
+5 == "5"    // true (loose equality)
+5 === "5"   // false (strict equality)
+5 != "6"    // true
+5 !== "5"   // true
+
+// Greater/Less than
+5 > 3       // true
+5 >= 5      // true
+3 < 5       // true
+3 <= 3      // true</code></pre>
+
+                <h3>Logical Operators</h3>
+                <pre><code>// AND (&&)
+true && true    // true
+true && false   // false
+
+// OR (||)
+true || false   // true
+false || false  // false
+
+// NOT (!)
+!true           // false
+!false          // true</code></pre>
+            </div>
+        </section>
+
+        <section id="conditionals">
+            <h2>Conditionals</h2>
+            <div class="content">
+                <h3>If Statements</h3>
+                <pre><code>if (condition) {
+    // code
+} else if (another condition) {
+    // code
+} else {
+    // code
+}
+
+// Ternary Operator
+// condition = if, ? = then, : = else
+let result = condition ? 'yes' : 'no';</code></pre>
+<h3>Switch Statements</h3>
+<pre><code>switch(value) {
+case 1:
+// code
+break;
+case 2:
+// code
+break;
+default:
+// code
+}</code></pre>
+
+<h3>Switch Statement Example</h3>
+<pre><code>let day = 3;
+switch(day) {
+case 1:
+console.log("Monday");
+break;
+case 2:
+console.log("Tuesday");
+break;
+case 3:
+console.log("Wednesday");
+break;
+default:
+console.log("Another day");
+}</code></pre>
+<p>Switch statement breakdown:</p>
+<ul>
+    <li><code>switch(value)</code> - Expression to evaluate</li>
+    <li><code>case</code> - Each possible value to match</li>
+    <li><code>break</code> - Exits the switch block when matched</li>
+    <li><code>default</code> - Runs if no cases match</li>
+</ul>
+<p>This example will output "Wednesday" because day equals 3. Without break statements, it would continue executing subsequent cases.</p>
+</div>
+</section>
+
+        <section id="loops">
+            <h2>Loops</h2>
+            <div class="content">
+            <h3>For Loop</h3>
+            <pre><code>for (let i = 0; i < 10; i++) {
+        // logic here - this is where your code goes to be repeated
+    }</code></pre>
+            <p>In the parentheses: <br>
+               - <code>let i = 0</code>: Initialize counter variable<br>
+               - <code>i < 10</code>: Condition to keep loop running<br>
+               - <code>i++</code>: Increment counter after each iteration. i++ = i = i + 1. i-- = i = i - 1</p>
+
+            <h3>Example Loop</h3>
+            <pre><code>let sum = 0;
+for (let i = 1; i <= 5; i++) {
+    sum += i;    // Adds numbers 1 through 5
+}
+// Result: sum equals 15</code></pre>
+            <p>This loop calculates the sum of numbers from 1 to 5 (1 + 2 + 3 + 4 + 5 = 15)</p>
+            </div>
+        </section>
+
+
+        <section id="objects">
+            <h2>Objects</h2>
+            <div class="content">
+                <pre><code>const person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    features: ['height', 'weight']
+}</code></pre>
+        <p>Objects are a collection of key-value pairs. They can contain other objects.</p>
+            </div>
+        </section>
+
+        <section id="functions">
+            <h2>Functions</h2>
+            <div class="content">
+                <h3>Basic Function</h3>
+                <pre><code>// Function declaration
+function addNum(num1, num2) {
+    return num1 + num2;
+}
+
+// Function usage
+const result = addNum(5, 3);    // returns 8
+const sum = addNum(10, 20);     // returns 30</code></pre>
+                <p>Function breakdown:</p>
+                <ul>
+                    <li><code>function</code> - Keyword to declare a function</li>
+                    <li><code>addNum</code> - Function name using camelCase</li>
+                    <li><code>(num1, num2)</code> - Parameters the function accepts</li>
+                    <li><code>return</code> - Specifies what value to send back</li>
+                </ul>
+                <p>This function takes two numbers as input and returns their sum. It can be reused multiple times with different values.</p>
+                
+                <h3>Constructor Functions</h3>
+                <pre><code>// Constructor function
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.greet = function() {
+        return `Hi, I'm ${this.name}`;
+    }
+}
+
+// Creating new instances
+const person1 = new Person("John", 30);
+const person2 = new Person("Jane", 25);
+
+console.log(person1.name);     // "John"
+console.log(person2.age);      // 25
+console.log(person1.greet());  // "Hi, I'm John"</code></pre>
+                <p>Constructor functions are used as templates to create objects:</p>
+                <ul>
+                    <li><code>function Person()</code> - Constructor function (capitalized by convention)</li>
+                    <li><code>this</code> - Refers to the new instance being created</li>
+                    <li><code>new Person()</code> - Creates a new object from the function 'Person'</li>
+                    <li><code>.greet()</code> - Method that can be called on instances</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="dom-manipulation"></section>
+            <h2>DOM Manipulation</h2>
+            <div class="content">
+                <h3>Editing Elements</h3>
+                <ul>
+                    <li><code>.remove()</code> - Removes the element from DOM</li>
+                    <li><code>.lastElementChild</code> - Selects the last child element</li>
+                    <li><code>.innerHTML</code> - Gets or sets HTML content</li>
+                    <li><code>.textContent</code> - Gets or sets text content</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="selectors">
+            <h2>DOM Selectors</h2>
+            <div class="content">
+                <h3>Single Elements</h3>
+                <ul>
+                    <li><code>document.getElementById('id')</code></li>
+                    <li><code>document.querySelector('.class')</code></li>
+                </ul>
+                <h3>Multiple Elements</h3>
+                <ul>
+                    <li><code>document.querySelectorAll('.class')</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="string-methods">
+            <h2>String Methods</h2>
+            <div class="content">
+                <pre><code>let str = "Hello, World!";
+
+str.length;          // 13
+str.toUpperCase();   // "HELLO, WORLD!"
+str.toLowerCase();   // "hello, world!"
+str.indexOf("World"); // 7
+str.slice(0, 5);     // "Hello"
+str.split(",");      // ["Hello", " World!"]
+str.trim();          // Removes whitespace
+str.replace("World", "JavaScript"); // "Hello, JavaScript!"</code></pre>
+            </div>
+        </section>
+
+        <section id="type-conversion">
+            <h2>Type Conversion</h2>
+            <div class="content">
+                <pre><code>// String to Number
+Number("42");        // 42
+parseInt("42");      // 42
+parseFloat("42.5");  // 42.5
+
+// Number to String
+String(42);          // "42"
+(42).toString();     // "42"
+
+// To Boolean
+Boolean(1);          // true
+Boolean("");         // false
+Boolean(0);          // false
+Boolean("hello");    // true</code></pre>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
